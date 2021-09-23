@@ -166,19 +166,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "cost",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -442,37 +429,6 @@ var abi = [
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_newCost",
-				"type": "uint256"
-			}
-		],
-		"name": "setCost",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_tokenID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_extensionURI",
-				"type": "string"
-			}
-		],
-		"name": "setOwnedTokenURI",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
 				"name": "_tokenID",
 				"type": "uint256"
 			},
@@ -671,7 +627,7 @@ var abi = [
 	}
 ];
 
-var address = "0x8570eeb3733611AC0E4cbC77FE5b38d7c6797BE0";
+var address = "0x2Fe193D6380c3954236d0c77Bef85942254eBc1d";
 var jsonBaseAddress = "https://vectornft.mypinata.cloud/ipfs/";
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
