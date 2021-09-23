@@ -402,6 +402,29 @@ var abi = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "sendtoken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "operator",
 				"type": "address"
 			},
@@ -631,7 +654,7 @@ var abi = [
 	}
 ];
 
-var address = "0x2Fe193D6380c3954236d0c77Bef85942254eBc1d";
+var address = "0xe40046A11609d3E8e1efC8F49b5309865a6Fe3EE";
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
@@ -771,7 +794,7 @@ function transferNFT(){
 	console.log(typeof tokenid)
 	let toaddress = document.getElementById("address_to").value
 	console.log(typeof toaddress)
-	let contractFunctionData = contract.methods.transferFrom(walletID, toaddress, tokenid).encodeABI()
+	let contractFunctionData = contract.methods.sendtoken(walletID, toaddress, parseInt(tokenid)).encodeABI()
 	web3.eth.sendTransaction({ 
 		from: walletID,
 		to: toaddress,
