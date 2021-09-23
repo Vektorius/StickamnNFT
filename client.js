@@ -766,12 +766,11 @@ function getNFTsOfUser() {
 
 
 function transferNFT(){
-	var contract = new web3.eth.Contract(abi, address);
 	let tokenid = document.getElementById("token_id").value
 	console.log(tokenid)
 	let toaddress = document.getElementById("address_to").value
 	console.log(toaddress)
-	var contract = new web3.eth.Contract(abi, address)
+	var contract = new web3.eth.Contract(abi, address);
 	let contractFunctionData = contract.methods.safeTransferFrom(walletID, toaddress, tokenid).encodeABI()
 	web3.eth.sendTransaction({ 
 		from: walletID,
