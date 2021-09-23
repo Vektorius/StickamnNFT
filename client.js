@@ -12,6 +12,10 @@ window.onload = function () {
   document.getElementById("show nft").onclick = function show() {
     getNFTsOfUser();
   };
+
+  document.getElementById("send").onclick = function show() {
+    transferNFT();
+  }
 };
 var walletID = "x";
 var theTransactionHash = "";
@@ -628,7 +632,6 @@ var abi = [
 ];
 
 var address = "0x2Fe193D6380c3954236d0c77Bef85942254eBc1d";
-var jsonBaseAddress = "https://vectornft.mypinata.cloud/ipfs/";
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
@@ -673,7 +676,6 @@ function connectWallet() {
     console.log("Non-Ethereum browser detected. You should consider installing MetaMask.");
     document.getElementById("demo").innerHTML = "METAMASK NOT FOUND! PLEASE INSTALL OR USE A DAPP!";
   }
-  // })
 }
 
 
@@ -704,34 +706,9 @@ async function mintbetternft() {
                     value: price,
                     data: contractFunctionData,
                   }).on('receipt', function(receipt) {
-                    //console.log(receipt);
                     console.log(web3.utils.hexToNumber(receipt.logs[0].topics[3]));
                     document.getElementById("mintprocess").innerHTML = "SUCCESSFULLY MINTED AN NFT";
-                    /*$.ajax({
-                      url: "test1",
-                      success: function (res) {
-                        console.log("server response is", res);
-                        console.log(typeof res);
-                        // send Change URI transaction
-                        
-                        setTokenURI(eceipt.logs[0].topics[3], res);
-                          let functionData = contract.methods.setOwnedTokenURI(receipt.logs[0].topics[3], res).encodeABI();
-                          web3.eth.sendTransaction(
-                            {
-                              from: acc[0],
-                              to: address,
-                              value: 1,
-                              data: functionData,
-                            }).on('receipt', function(receipt) {
-                              console.log("Token at: " + web3.utils.hexToNumber(receipt.logs[0].topics[3])+ " Set to uri at:" + res);                     
-                            });
-                        //TODO unpin last nft if mint was not allowed
-                      },
-                    });*/
-
                   });
-                  
-                
               } else document.getElementById("mintprocess").innerHTML = "ERROR CALCULATING PRICE";
             });
           }
@@ -746,48 +723,6 @@ async function mintbetternft() {
   }
 }
 
-function setTokenURI(id, ipfs) {
-  if (window.ethereum) {
-    window.web3 = new Web3(ethereum);
-    ethereum
-      .enable()
-      .then(() => {
-        console.log("Ethereum enabled");
-        web3.eth.getAccounts(function (err, acc) {
-          if (err != null) {
-            self.setStatus("There was an error fetching your accounts");
-            return;
-          }
-          if (acc.length > 0) {
-            var contract = new web3.eth.Contract(abi, address);
-            let functionData = contract.methods.setOwnedTokenURI(id, ipfs).encodeABI();
-            var price = 0;
-            contract.methods.getPrice().call((err, result) => {
-              if (!err) {
-                price = result;
-                console.log(result);
-                web3.eth.sendTransaction(
-                  {
-                    from: acc[0],
-                    to: address,
-                    value: 0,
-                    data: contractFunctionData,
-                  }).on('receipt', function(receipt) {
-                      console.log("Token at: " + id+ " Set to uri at:" + ipfs);                     
-                });          
-              } else document.getElementById("mintprocess").innerHTML = "ERROR CALCULATING PRICE";
-            });
-          }
-        });
-      })
-      .catch(() => {
-        console.warn("User didn't allow access to accounts.");
-        waitLogin();
-      });
-  } else {
-    console.log("ERROR.");
-  }
-}
 
 function getNFTsOfUser() {
   // DELETE ALREADY SHOWING NFTs
@@ -827,4 +762,26 @@ function getNFTsOfUser() {
       }
     } else document.getElementById("numberoftokens").innerHTML = err;
   });
+}
+
+
+function transferNFT(){
+	let tokenid = document.getElementById("token_id").value
+	let toaddress = document.getElementById("address_to").value
+	var contract = new web3.eth.Contract(abi, address)
+	let contractFunctionData = contract.methods.safeTransferFrom(walletID, toaddress, tokenid).encodeABI()
+	web3.eth.sendTransaction({ 
+		from: walletID,
+		to: toaddress,
+		data: contractFunctionData
+	}, function(err, result) {
+			if(!err) {
+				console.log(result)
+				document.getElementById("transferdetails").innerHTML = "SUCCESSFULLY TRANSFERRED";
+				return;
+			}
+			else {
+				document.getElementById("transferdetails").innerHTML = "ERROR";
+			}
+		})
 }
