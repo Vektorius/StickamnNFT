@@ -771,7 +771,7 @@ function transferNFT(){
 	let toaddress = document.getElementById("address_to").value
 	console.log(toaddress)
 	var contract = new web3.eth.Contract(abi, address);
-	let contractFunctionData = contract.methods.safeTransferFrom(walletID, toaddress, tokenid).encodeABI()
+	let contractFunctionData = contract.methods.transferFrom(walletID, toaddress, tokenid).encodeABI()
 	web3.eth.sendTransaction({ 
 		from: walletID,
 		to: toaddress,
