@@ -654,7 +654,7 @@ var abi = [
 	}
 ];
 
-var address = "0xe40046A11609d3E8e1efC8F49b5309865a6Fe3EE";
+var address = "0x547d7146e3978511e81e7fca118C5725F874a8cE";
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
