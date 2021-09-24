@@ -402,7 +402,7 @@ var abi = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "from",
+				"name": "sender",
 				"type": "address"
 			},
 			{
@@ -654,7 +654,7 @@ var abi = [
 	}
 ];
 
-var address = "0x547d7146e3978511e81e7fca118C5725F874a8cE";
+var address = "0xf2ebbE9a514F0F9426071FF99952E33201E76E3d";
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
@@ -810,4 +810,5 @@ function transferNFT(){
 			}
 		})
 }
+
 
