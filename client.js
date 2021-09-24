@@ -655,6 +655,7 @@ var abi = [
 ];
 
 var address = "0xf2ebbE9a514F0F9426071FF99952E33201E76E3d";
+var networkChain = 4002;
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
@@ -671,35 +672,41 @@ var getJSON = function (url, callback) {
 };
 
 function connectWallet() {
-  if (window.ethereum) {
-    window.web3 = new Web3(ethereum);
-    ethereum
-      .enable()
-      .then(() => {
-        console.log("Ethereum enabled");
-        web3.eth.getAccounts(function (err, acc) {
-          if (err != null) {
-            self.setStatus("There was an error fetching your accounts");
-            return;
-          }
-          if (acc.length > 0) {
-            console.log(acc);
-            walletID = acc[0];
-            document.getElementById("demo").innerHTML = "CONNECTED!";
-            return;
-          }
-        });
-      })
-      .catch(() => {
-        console.warn("User didn't allow access to accounts.");
-        document.getElementById("demo").innerHTML = "CONNECTION REJECTED!";
-        waitLogin();
-      });
-  } else {
-    console.log("Non-Ethereum browser detected. You should consider installing MetaMask.");
-    document.getElementById("demo").innerHTML = "METAMASK NOT FOUND! PLEASE INSTALL OR USE A DAPP!";
+	if (window.ethereum) {
+	  window.web3 = new Web3(ethereum);
+	  ethereum
+		.enable()
+		.then(async () => {
+			let chain = await web3.eth.getChainId();
+			console.log(chain);
+			if (chain != networkChain) {
+				document.getElementById("demo").innerHTML = "Please use fantom network!";
+				return;
+			}
+		  console.log("Ethereum enabled");
+		  web3.eth.getAccounts(function (err, acc) {
+			if (err != null) {
+			  self.setStatus("There was an error fetching your accounts");
+			  return;
+			}
+			if (acc.length > 0) {
+			  console.log(acc);
+			  walletID = acc[0];
+			  document.getElementById("demo").innerHTML = "CONNECTED!";
+			  return;
+			}
+		  });
+		})
+		.catch(() => {
+		  console.warn("User didn't allow access to accounts.");
+		  document.getElementById("demo").innerHTML = "CONNECTION REJECTED!";
+		  waitLogin();
+		});
+	} else {
+	  console.log("Non-Ethereum browser detected. You should consider installing MetaMask.");
+	  document.getElementById("demo").innerHTML = "METAMASK NOT FOUND! PLEASE INSTALL OR USE A DAPP!";
+	}
   }
-}
 
 
 async function mintbetternft() {
