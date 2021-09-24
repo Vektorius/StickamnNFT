@@ -791,24 +791,23 @@ function getNFTsOfUser() {
 function transferNFT(){
 	var contract = new web3.eth.Contract(abi, address);
 	let tokenid = document.getElementById("token_id").value
-	console.log(typeof tokenid)
 	let toaddress = document.getElementById("address_to").value
+	console.log(typeof parseInt(tokenid))
 	console.log(typeof toaddress)
-	let contractFunctionData = contract.methods.sendtoken(walletID, toaddress, parseInt(tokenid)).encodeABI()
-	web3.eth.sendTransaction({ 
-		from: walletID,
-		to: toaddress,
-		data: contractFunctionData
-	}, function(err, result) {
-			if(!err) {
-				console.log(result)
-				document.getElementById("transferdetails").innerHTML = "SUCCESSFULLY TRANSFERRED";
-				return;
-			}
-			else {
-				document.getElementById("transferdetails").innerHTML = "ERROR";
-			}
-		})
+	console.log(typeof walletID)
+	
+	console.log( parseInt(tokenid))
+	console.log( toaddress)
+	console.log( walletID)
+	contract.methods.sendtoken(walletID, toaddress, parseInt(tokenid)).send({ from: walletID}).on('transactionHash', function(hash){
+		console.log(hash);
+	}).on('confirmation', function(confirmationNumber, receipt){
+		console.log(confirmationNumber);
+	}).on('receipt', function(receipt){
+		console.log(receipt);
+	}).on('error', function(err, receipt){
+		console.log(err);
+	})
 }
 
 
