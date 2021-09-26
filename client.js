@@ -654,8 +654,8 @@ var abi = [
 	}
 ];
 
-var address = "0xf2ebbE9a514F0F9426071FF99952E33201E76E3d";
-var networkChain = 4002;
+var address = "0x388c8F0672823EeA4557e936Cb6CE3b16F057060";
+var networkChain = 97;
 var getJSON = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
