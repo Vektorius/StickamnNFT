@@ -776,11 +776,10 @@ function getNFTsOfUser() {
               var theURL = data.image;
               var img = document.createElement("img");
               var tokenNumber = document.createElement("h2");
-			  tokenNumber.classList.add('u-custom-font u-text u-text-custom-color-1 u-text-default u-text-1');
               var lineBreak = document.createElement("br");
               img.src = theURL;
               img.class = "nftimages";
-              img.style = "width: 100%;max-width: 200px;height: auto;display: block;margin-left: auto;margin-right: auto;";
+              img.style = "width: 100%;max-width: 1000px;height: auto;display: block;margin-left: auto;margin-right: auto;";
               tokenNumber.style = "font-size: max(2vw, 30px);text-align: center;";
               tokenNumber.innerHTML = data.name;
               document.getElementById("placetoshownfts").appendChild(tokenNumber);
