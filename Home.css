@@ -3,13 +3,16 @@
 }
 
 .u-section-1 .u-text-1 {
+  font-family: Arvo;
   margin: 320px auto 60px 37px;
 }.u-section-2 .u-sheet-1 {
-  min-height: 485px;
+  min-height: 779px;
 }
 
 .u-section-2 .u-text-1 {
+  background-image: none;
   font-weight: 700;
+  font-family: Arvo;
   margin: 60px auto 0;
 }
 
@@ -20,6 +23,7 @@
 
 .u-section-2 .u-accordion-link-1 {
   font-weight: 700;
+  font-family: Arvo;
   padding: 20px 30px;
 }
 
@@ -39,6 +43,7 @@
 
 .u-section-2 .u-accordion-link-2 {
   font-weight: 700;
+  font-family: Arvo;
   padding: 20px 30px;
 }
 
@@ -58,6 +63,7 @@
 
 .u-section-2 .u-accordion-link-3 {
   font-weight: 700;
+  font-family: Arvo;
   padding: 20px 30px;
 }
 
@@ -77,6 +83,7 @@
 
 .u-section-2 .u-accordion-link-4 {
   font-weight: 700;
+  font-family: Arvo;
   padding: 20px 30px;
 }
 
@@ -96,6 +103,7 @@
 
 .u-section-2 .u-accordion-link-5 {
   font-weight: 700;
+  font-family: Arvo;
   padding: 20px 30px;
 }
 
