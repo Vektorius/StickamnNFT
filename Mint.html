@@ -37,7 +37,7 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-custom-color-1" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-custom-color-1" style="padding: 10px 20px;">Mint</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-custom-color-1 u-text-custom-color-1" href="Mint.html" style="padding: 10px 20px;">Mint</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -45,45 +45,48 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">Mint</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Mint.html" style="padding: 10px 20px;">Mint</a>
 </li></ul>
               </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
           </div>
         </nav>
-        <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-custom-color-2 u-radius-10 u-text-body-color u-btn-1">Connect Wallet<br>
+        <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-hover-custom-color-2 u-radius-10 u-text-body-color u-btn-1" id="connect wallet">Connect Wallet<br>
         </a>
+        <p style="text-align:center" id="demo"></p>
         <h1 class="u-text u-text-custom-color-1 u-text-default u-text-1">Spooky Skeletoons </h1>
       </div></header>
     <section class="u-clearfix u-grey-70 u-section-1" id="sec-c269">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-container-style u-group u-group-1">
           <div class="u-container-layout">
+            <div >
             <img class="u-image u-image-round u-preserve-proportions u-radius-10 u-image-1" src="images/543.png" alt="" data-image-width="1000" data-image-height="1000">
             <img class="u-image u-image-round u-preserve-proportions u-radius-10 u-image-2" src="images/954.png" alt="" data-image-width="1000" data-image-height="1000">
             <img class="u-expanded-height u-image u-image-round u-preserve-proportions u-radius-10 u-image-3" src="images/888.png" alt="" data-image-width="1000" data-image-height="1000">
           </div>
         </div>
-        <a href="Mint.html#sec-c269" data-page-id="82321006" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-radius-10 u-text-body-color u-btn-1">Mint</a>
-        <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-radius-10 u-text-body-color u-btn-2">My Skeletoons</a>
+        <a href="Mint.html#sec-c269" data-page-id="82321006" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-radius-10 u-text-body-color u-btn-1" id="mint">Mint</a>
+        <div class="u-container-layout u-container-layout-2" id="mintprocess"></div>
+        <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-radius-10 u-text-body-color u-btn-2" id="show nft">My Skeletoons</a>
         <div class="u-container-style u-group u-shape-rectangle u-group-2">
-          <div class="u-container-layout u-container-layout-2"></div>
+          <div class="u-container-layout u-container-layout-2" id="placetoshownfts"></div>
         </div>
       </div>
     </section>
     <section class="u-clearfix u-grey-70 u-section-2" id="sec-2a29">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-align-left u-text u-text-custom-color-1 u-text-default u-text-1">Transfer your skeleton</p>
+        <p class="u-align-left u-text u-text-custom-color-1 u-text-default u-text-1" id="send">Transfer your skeleton</p>
         <div class="u-form u-form-1">
           <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px" source="custom">
             <div class="u-form-group u-form-name">
               <label for="name-558c" class="u-form-control-hidden u-label">Name</label>
-              <input type="text" placeholder="Trasfer to:" id="name-558c" name="address_to" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10" required="">
+              <input type="text" placeholder="Trasfer to:" id="address_to" name="address_to" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10" required="">
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-558c" class="u-form-control-hidden u-label">Email</label>
-              <input type="email" placeholder="Token Id:" id="email-558c" name="token_id" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10" required="">
+              <input type="email" placeholder="Token Id:" id="token_id" name="token_id" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-10" required="">
             </div>
             <div class="u-form-group u-form-submit">
               <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-1 u-radius-10 u-text-body-color u-btn-1">Transfer</a>
