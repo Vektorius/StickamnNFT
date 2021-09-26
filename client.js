@@ -776,6 +776,7 @@ function getNFTsOfUser() {
               var theURL = data.image;
               var img = document.createElement("img");
               var tokenNumber = document.createElement("h2");
+			  tokenNumber.classList.add('u-custom-font u-text u-text-custom-color-1 u-text-default u-text-1');
               var lineBreak = document.createElement("br");
               img.src = theURL;
               img.class = "nftimages";
