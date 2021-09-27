@@ -737,7 +737,7 @@ async function mintbetternft() {
                     data: contractFunctionData,
                   }).on('receipt', function(receipt) {
                     console.log(web3.utils.hexToNumber(receipt.logs[0].topics[3]));
-                    document.getElementById("mintprocess").innerHTML = "SUCCESSFULLY MINTED AN NFT";
+                    document.getElementById("mintprocess").innerHTML = "NFT Minted Successfully. It can take up to a minute to generate it.";
                   });
               } else document.getElementById("mintprocess").innerHTML = "ERROR CALCULATING PRICE";
             });
